@@ -5,9 +5,16 @@ Contains the number_of_subscribers function
 
 import requests
 
+
 def number_of_subscribers(subreddit):
     """
     Returns the number of subscribers for a given subreddit
+
+    Parameters:
+    subreddit (str): The subreddit to retrieve the number of subscribers for
+
+    Returns:
+    int: The number of subscribers for the given subreddit
     """
     if subreddit is None or not isinstance(subreddit, str):
         return 0
