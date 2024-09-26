@@ -28,6 +28,13 @@ def number_of_subscribers(subreddit):
         subs = json_data.get("data", {}).get("subscribers", 0)
         return subs
 
+    except requests.exceptions.HTTPError as e:
+        if e.response.status_code == 404:
+            return 0
+        else:
+            print(f"Error: {e}")
+            return 0
+
     except requests.exceptions.RequestException as e:
         print(f"Error: {e}")
         return 0
